@@ -1,9 +1,6 @@
-# This file plots the separatrices for the hyperbolic points of order 9
-# found in create_orbits/k3A0.5/periodic_orbit_k3A0.5.py, that were found with the precision of 50 decimals
-# in the files separatrix_9_..._50_n.py , and the results of flipping them w.r. to phi = pi/3.
-# This file is based on separatrices_9_100decimals.py and creates only enlarged plots
-# of upper and lower left directions.
-
+# This file plots the separatrices for the hyperbolic points of order 9 that was
+# found in create_orbits/k3A0.5/periodic_orbit_k3A0.5.py; these separtrices were found with the precision of 50 decimals
+# in the files separatrix_9_..._50_n.py , and also obtained by flipping them w.r. to phi = pi/3.
 
 import matplotlib.pyplot as plt
 import mpmath as mp

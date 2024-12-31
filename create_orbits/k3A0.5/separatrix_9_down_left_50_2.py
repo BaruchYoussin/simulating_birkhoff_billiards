@@ -1,7 +1,6 @@
 # This file creates the separatrix for the 9-periodic point at phi = p/3 found in
 # create_orbits/k3A0.5/periodic_orbit_k3A0.5.py, in the downward left direction.
 # Precision of the separatrix: 50 decimals achieved by working precision 110 decimals (validation: 130).
-# Based on separatrix_9_down_left.py
 # This file is 2nd (0-based) of the 6 files creating the separtrices for different starting points, so that together
 # they yield a denser separatrix.
 
