@@ -46,7 +46,7 @@ separatrix_path = billiard_Birkhoff_lib.BirkhoffBilliard_k_A.separatrix_by_block
     approach_separatrix_direction, other_separatrix_direction, precision, separating_coefficient, forward,
     starting_point1, starting_point2, approaching_ratio, num_new_orbits, block_size, num_steps_back,
     path_to_orbit_ambient, dir_name, verbose=True)
-# Takes up to 7.5 hours per orbit
+# Takes up to 7.5 hours per orbit, over 2 weeks total.
 # Max discrepancy: 2.5391801219420038e-58
 print(f"Completed! separatrix_path: {separatrix_path}")
 # Completed! separatrix_path: ../../orbits/k3A0.5/separatrices/9up_left50_4/separatrix.pkl
