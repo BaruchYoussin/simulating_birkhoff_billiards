@@ -4,38 +4,37 @@ by Misha Byaly, Baruch Youssin
 
 ## Summary: TL;DR
 
-This repository contains the code we created in an unsuccessful attempt to disprove the 
-Birkhoff-Poritsky conjecture for a specific billiard.
+This repository contains the code we created during our (unsuccessful)
+attempt to disprove the Birkhoff-Poritsky conjecture for a specific billiard.
 
-Our code contains a library that can be used for simulating 
-general Birkhoff billiards whose boundary is given analytically by 
-their support functions.
+The repository includes:
 
-It also contains the scripts that simulate the specific billiard 
-we have tried.
+- A library for simulating general Birkhoff billiards with boundaries defined
+analytically via their support functions.
+- Scripts used to simulate a particular billiard table we studied.
 
 The billiard boundary we used, is nice, simple and analytic. Nevertheless,
 our results show chaotic behavior (intersecting separatrices) only
-at distances of $10^{-46}$ from a hyperbolic periodic point of order 9;
-the orbits we have calculated that pass near this point at
-distances of $10^{-19}$ - $10^{-21}$, do not exhibit any chaotic behavior.
+at distances of about $10^{-46}$ from a hyperbolic periodic point of order 9.
+Orbits passing near this point at
+distances of $10^{-19}$ - $10^{-21}$ do not exhibit any chaotic behavior.
 
 ## Mathematical summary
 
-Birkhoff-Poritsky conjectured that the only integrable billiards in the plane 
-are ellipses. We examine a specific billiard table (see the formulas below)
-which is rotationally symmetric with respect to the angle of $\pi/3$
-and has an invariant curve of 6-periodic orbits. 
-Our experiments show that this billiard is not integrable 
-due to complicated behaviour of separatrices near hyperbolic periodic orbits. 
+The Birkhoff-Poritsky conjecture posits that ellipses are the only integrable billiards
+in the plane.
+We studied a specific billiard table (defined below) that is rotationally symmetric
+with respect to an angle of $\pi/3$ and possesses an invariant curve of 6-periodic orbits.
 
-We refer to a recent paper [[1]](#1) for the conjecture and further references,
-and in particular, for the notion of support function that we use
-to define a billiard boundary.
+Our experiments demonstrate non-integrability of this billiard due to
+the complex behavior of separatrices near hyperbolic periodic points.
+
+For the conjecture, relevant references, and the concept of support functions
+used to define billiard boundaries, see [[1]](#1).
 
 <a id="1">[1]</a> 
 The Birkhoff-Poritsky conjecture for centrally-symmetric billiard tables.
-Bialy, Misha; Mironov, Andrey E.
+Bialy, Misha; Mironov, Andrey E.<br/>
 Ann. of Math. (2) 196 (2022), no. 1, 389–413.
 [https://doi.org/10.4007/annals.2022.196.1.2](https://doi.org/10.4007/annals.2022.196.1.2)
 </br>[MR4429262](https://mathscinet.ams.org/mathscinet/article?mr=4429262)
@@ -44,9 +43,7 @@ Ann. of Math. (2) 196 (2022), no. 1, 389–413.
 
 ### Directory contents
 
-The contents of the directories are as follows:
-
-`lib` contains the following libraries:
+`lib`: Contains libraries for implementing billiard simulations and related tasks:
 - `general_lib` contains the code that implements the billiard simulations
 taking the billiard boundary as a parameter. 
 It also contains other general purpose code.
@@ -85,7 +82,7 @@ the directories where the files containing orbits and separatrices are placed:
 by functions defined in `general_lib`.
 - `colors_lib` contains functions related to colors.
 
-`tests` contains extensive tests of the functions defined in the modules of `lib`.
+`tests` contains extensive tests for modules in `lib`.
 
 `create_orbits/k3A0.5` contains the scripts that simulate our
 billiard and create orbits and separatrices by calling the library
@@ -149,12 +146,10 @@ The mpmath development team.
 
 ## Formulas and algorithms implemented in the code
 
-### Billiard boundary defined by its support function 
+### Billiard boundary via support function 
 
-Let $\gamma$ be the billiard boundary which will be assumed to be smooth and convex.
-
-Its support function w.r. to the origin
-is defined by 
+Given a smooth, convex billiard boundary $\gamma$, its support function relative
+to the origin is defined as:
 $$h(\theta) = \max_{(x,y)\in\gamma}\left\{x \cos\theta + y \sin\theta\right\}\ .$$
 
 The tangency point (where the above maximal value is attained)
@@ -169,15 +164,13 @@ These formulas are implemented in the function
 
 ### The phase space of Birkhoff billiard
 
-The points of the phase space correspond to directed lines that cross the
-billiard boundary.
+Phase space points correspond to directed lines crossing the billiard boundary.
+The phase space is parameterized as:
 
-We specify such line by the two coordinates $(\phi, p)$, where $\phi$ is
-the angle from the $Ox$ axis
-to the normal to the line in the counterclockwise direction,
-and $p$ is the signed distance between the origin $O$ and the line;
-$p$ is positive if the direction of the line is counterclockwise looking
-from $O$.
+- $\phi$: Angle from the $Ox$ axis to the line's normal in
+the counterclockwise direction.
+- $p$: Signed distance from the origin to the line,
+positive if the direction of the line is counterclockwise looking from $O$.
 
 ### The billiard map in the phase space
 
@@ -189,13 +182,13 @@ of the line with the billiard boundary as the solution of the nonlinear
 equation on the parameter value $\theta$ in the interval $(\phi, \phi + \pi)$.
 This is implemented in the function
 `lib.general_lib.intersect_line_with_parametric_billiard_boundary`.
-2. Find $\phi_1$ of the reflected line:
+2. Calculate $\phi_1$ of the reflected line:
 $\phi_1 = 2\theta - \phi$. Here we assume that the boundary is parametrized
 by its support function, so that $\phi$ is the angle of the normal to the
 tangent of the intersection point.  Subtract $2\pi$ from $\phi_1$ if necessary.
 This is implemented in the function
 `lib.general_lib.reflect_line_at_point`.
-3. Find $p_1$ of the reflected line by projecting the intersection point
+3. Determine $p_1$ of the reflected line by projecting the intersection point
 to the normal to the reflected line whose direction $\phi_1$ we have already
 found.
 This is implemented in the function
