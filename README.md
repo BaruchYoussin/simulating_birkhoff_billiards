@@ -150,12 +150,16 @@ The mpmath development team.
 
 Given a smooth, convex billiard boundary $\gamma$, its support function relative
 to the origin is defined as:
-$$h(\theta) = \max_{(x,y)\in\gamma}\left\{x \cos\theta + y \sin\theta\right\}\ .$$
+
+$$h(\theta) = \max_{(x,y)\in\gamma}\left\\{x \cos\theta + y \sin\theta\right\\}\ .$$
 
 The tangency point (where the above maximal value is attained)
 is given by the following formulas:
+
 $$x = h(\theta)\cos(\theta) - h'(\theta)\sin(\theta)$$
-$$x = h(\theta)\sin(\theta) + h'(\theta)\cos(\theta)$$
+
+$$y = h(\theta)\sin(\theta) + h'(\theta)\cos(\theta)$$
+
 These formulas yield a parametrization of the billiard boundary built from
 its support function.
 
@@ -198,9 +202,13 @@ This is implemented in the function
 
 We consider the following family of billiard boundaries given by their
 support functions:
+
 $$h(\theta) = \cos(\frac{\pi}{k} - d(\theta))$$
+
 where
+
 $$d(\theta) = \frac{1}{k}\arccos(A\cos(k\theta))\ ,$$
+
 and $k$ and $A$ are parameters specifying a billiard in this family,
 $k = 3, 4, ...$, $0\lt A\lt 1$.
 
@@ -213,8 +221,11 @@ This billiard boundaries in this family is implemented in the class
 
 There is an invariant curve in the phase space which consists of
 $2k$-periodic orbits; it is given by the following parametric equations:
+
 $$\phi = \psi + d(\psi)\ ,$$
+
 $$p = h(\psi)\cos d(\psi) + h'(\psi)\sin d(\psi)\ ,$$
+
 where $\psi$ is a parameter in $[0, 2\pi]$.
 
 ### Algorithm for finding separatrices
